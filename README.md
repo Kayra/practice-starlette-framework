@@ -4,6 +4,7 @@ This is the code written while following Zachary Bennett's [Building Async Pytho
 
 **Python version: 3.8.5**
 
-**Starlette version: **
+**Starlette version: 0.14.1**
 
 ## Set up
+
