@@ -4,6 +4,7 @@ from starlette.responses import PlainTextResponse
 from starlette.responses import JSONResponse
 import uvicorn
 
+import time
 import asyncio
 
 
@@ -19,10 +20,34 @@ async def health(request):
     return JSONResponse({'Application status': 200})
 
 
+async def example_async_blocker_one(request):
+    await asyncio.sleep(5)
+    return PlainTextResponse("First async response sent")
+
+
+async def example_async_blocker_two(request):
+    await asyncio.sleep(5)
+    return PlainTextResponse("Second async response sent")
+
+
+async def example_sync_blocker_one(request):
+    time.sleep(5)
+    return PlainTextResponse("First sync response sent")
+
+
+async def example_sync_blocker_two(request):
+    time.sleep(5)
+    return PlainTextResponse("Second sync response sent")
+
+
 routes = [
     Route('/', index),
     Route('/stats', example_stats),
-    Route('/health', health)
+    Route('/health', health),
+    Route('/example_async_blocker_one', example_async_blocker_one),
+    Route('/example_async_blocker_two', example_async_blocker_two),
+    Route('/example_sync_blocker_one', example_sync_blocker_one),
+    Route('/example_sync_blocker_two', example_sync_blocker_two)
 ]
 
 app = Starlette(debug=True, routes=routes)
