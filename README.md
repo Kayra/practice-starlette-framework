@@ -16,3 +16,31 @@ The test script uses [requests-futures](https://github.com/ross/requests-futures
 
 ## Set up
 
+Create a virtual environment and activate it:
+
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
+
+Install the requirements:
+
+```bash
+pip install -r requirements.txt
+```
+
+## Run
+
+Run the server:
+
+```bash
+source venv/bin/activate
+python run_server.py
+```
+
+**While the server is running,** run the tests:
+
+```bash
+source venv/bin/activate
+python run_tests.py
+```
