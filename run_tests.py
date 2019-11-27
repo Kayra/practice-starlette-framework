@@ -40,5 +40,5 @@ def sync_test():
     return test_routes(sync_routes)
 
 
-print(f'Async routes took: {async_test()}')
+print(f'Async routes took: {async_test()}\n')
 print(f'Sync routes took: {sync_test()}')
